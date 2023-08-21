@@ -13,14 +13,14 @@ public class MostFrequentCharacter {
             return null;
         }
 
-        HashMap<Character, Integer> charMap = new HashMap<>();
+        var charMap = new HashMap<Character, Integer>();
         for (char ch : str.toCharArray()) {
             charMap.put(ch, charMap.getOrDefault(ch,0)+1);
         }
         char maxKey = 0;
         int maxValue = 0;
-        for (Map.Entry<Character, Integer> chMap : charMap.entrySet()) {
-            if (maxValue < chMap.getValue()) {
+        for (var chMap : charMap.entrySet()) {
+            if (chMap.getValue() > maxValue) {
                 maxValue = chMap.getValue();
                 maxKey = chMap.getKey();
             }
